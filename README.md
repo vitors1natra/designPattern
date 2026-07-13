@@ -4,5 +4,4 @@
 
 **Study on design patterns from the Santander-DIO bootcamp**
 
-## java 
-## spring boot
+#### Java, Spring Boot
