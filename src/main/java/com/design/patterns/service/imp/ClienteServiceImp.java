@@ -9,6 +9,7 @@ import com.design.patterns.service.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,6 +34,12 @@ public class ClienteServiceImp implements ClienteService {
         Optional<Cliente> cliente = clienteRepository.findById(id);
         return cliente.get();
     }
+
+    @Override
+    public List<Endereco> findByEstado(String estado) {
+        return enderecoRepository.findByEstado(estado);
+    }
+
 
     @Override
     public void insert(Cliente cliente) {
@@ -63,4 +70,6 @@ public class ClienteServiceImp implements ClienteService {
     public void deleteById(Long id) {
         clienteRepository.deleteById(id);
     }
+
+
 }

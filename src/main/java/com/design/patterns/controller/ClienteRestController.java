@@ -2,10 +2,13 @@ package com.design.patterns.controller;
 
 
 import com.design.patterns.model.Cliente;
+import com.design.patterns.model.Endereco;
 import com.design.patterns.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("clientes")
@@ -23,6 +26,13 @@ public class ClienteRestController {
     public ResponseEntity<Cliente> findById(@PathVariable Long id) {
         return ResponseEntity.ok(clienteService.findById(id));
     }
+
+    @GetMapping("/estado/{estado}")
+    public ResponseEntity<List<Endereco>> findByEstado(@PathVariable String estado) {
+        List<Endereco> clientes = clienteService.findByEstado(estado);
+        return ResponseEntity.ok(clientes);
+    }
+
 
     @PostMapping
     public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {

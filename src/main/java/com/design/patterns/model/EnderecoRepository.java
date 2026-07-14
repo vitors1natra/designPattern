@@ -3,6 +3,10 @@ package com.design.patterns.model;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface EnderecoRepository extends CrudRepository<Endereco,String> {
+
+    List<Endereco> findByEstado(String estado);
 }
